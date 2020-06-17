@@ -31,12 +31,76 @@
 .header{
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 100%;
 }
 </style>
 
-<div class="d-flex justify-content-between align-items-center header p-1">
+<div class="d-flex justify-content-between align-items-center header p-1 position-fixed">
   <img src="{% static 'images/logo.png' %}" alt="логотип" width="50" height="55"/>
   <span class="title"> Dobrov </span>
   <button class="buttontext joinbutton"> Присоединиться </button>
 </div>
 {% endblock header %}
+
+{% block firstpage %}
+<style>
+.help_image{
+    width: 437px;
+    height: 543px;
+    float: left;
+}
+
+.dobrov{
+    margin-left: 20%;
+    font-family: Lora;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 2em;
+    line-height: 47px;
+    letter-spacing: 0.6em;    
+}
+
+.makegood{
+    margin-left: 5%;
+    font-family: Lora;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.6em;
+    color: #000000;
+}
+
+.dobrovIs{
+    font-family: Lora;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 38px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.3em;
+}
+
+
+</style>
+<div class="container ">
+    <img src="{% static 'images/help picture.png' %}" alt="логотип" class="help_image img-fluid">
+    <div class="container"> 
+        <br/> <br/> <br/> 
+        <span class="dobrov"> Dobrov - </span> 
+        <br/> <br/> <br/> 
+        <p class="dobrovIs text-break"> Это онлайн площадка для размещения объявлений с просьбами о помощи, где вы можете помочь людям! </p>
+    </div>
+    <br/> <br/> <br/> <br/> <br/> 
+    <span class="makegood"> “Твори добро
+    и оно к тебе 
+        обязательно вёрнется” </span>
+</div>
+{% endblock %}
+
+{% block secondpage %}
+{% endblock %}
+
+{% block thirdpage %}
+{% endblock %}
