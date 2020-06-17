@@ -1,5 +1,42 @@
 {% extends 'wrapper.html' %}
 
 {% block header %}
-<h1> Стартовая страница. </h1>
+{% load static %}
+<style>
+.title{
+    font-family: Lovers Quarrel;
+    font-size: 2em;
+    letter-spacing: 0.7em;
+}
+
+.buttontext{
+    font-family: Lora;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.1em;
+    line-height: 23px;
+    text-align: center;
+    letter-spacing: 0.25em;
+}
+
+.joinbutton{
+    width: 227px;
+    height: 42px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 4px #000000;
+}
+
+.header{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+</style>
+
+<div class="d-flex justify-content-between align-items-center header p-1">
+  <img src="{% static 'images/logo.png' %}" alt="логотип" width="50" height="55"/>
+  <span class="title"> Dobrov </span>
+  <button class="buttontext joinbutton"> Присоединиться </button>
+</div>
 {% endblock header %}
