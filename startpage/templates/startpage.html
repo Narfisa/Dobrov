@@ -5,23 +5,22 @@
 <style>
 .title{
     font-family: Lovers Quarrel;
-    font-size: 2em;
-    letter-spacing: 0.7em;
+    font-size: 2vw;
+    letter-spacing: 2vw;
 }
 
 .buttontext{
     font-family: Lora;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.1em;
-    line-height: 23px;
+    font-size: 1vw;
     text-align: center;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.25vw;
 }
 
 .joinbutton{
-    width: 227px;
-    height: 42px;
+    width: 15vw;
+    height: 5vh;
 
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -33,20 +32,34 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     width: 100%;
 }
+
+a{
+    color: #000;
+}
+
+a:hover{    
+    color: #000;
+    text-decoration: none;
+}
+
+.image{
+    width: 3vw;
+    height: 5vh;
+}
 </style>
 
 <div class="d-flex justify-content-between align-items-center header p-1 position-fixed">
-  <img src="{% static 'images/logo.png' %}" alt="логотип" width="50" height="55"/>
+  <img src="{% static 'images/logo.png' %}" alt="логотип" class="image" />
   <span class="title text-justify"> &#160; &#160; &#160; Dobrov </span>
-  <button class="buttontext joinbutton"> Присоединиться </button>
+  <button class="joinbutton btn btn-light d-flex justify-content-center align-items-center"> <a href="http://127.0.0.1:8000/auth/" class="buttontext"> Присоединиться </a> </button>
 </div>
 {% endblock header %}
 
 {% block firstpage %}
 <style>
 .help_image{
-    width: 437px;
-    height: 543px;
+    width: 30vw;
+    height: 60vh;
     float: left;
 }
 
@@ -81,9 +94,13 @@
     text-align: center;
     letter-spacing: 0.3em;
 }
+
+.firstpage{
+    margin-top: 2vh;
+}
 </style>
 
-<div class="container ">
+<div class="container firstpage">
     <img src="{% static 'images/help picture.png' %}" alt="логотип" class="help_image img-fluid">
     <div class="container"> 
         <br/> <br/> <br/> 
@@ -199,7 +216,7 @@
     transform: matrix(0.9, 0.44, 0.44, -0.9, 0, 0);
     position: absolute;
     right: 5em;
-    top: 80em;
+    top: 80.5em;
     width: 7em;
     height: auto;
 }

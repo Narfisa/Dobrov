@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dobrov</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .joinForm{
+            padding: 1em;
+            width: 32em;
+            height: 32em;
+            background: #FFFFFF;            
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 4px #000000;
+            margin-right: -10em;
+        }
+
+        .joinButton{
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 4px #000000;
+        }
+
+        .regA{
+            font-family: Lora;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 31px;
+            text-align: center;
+            letter-spacing: 0.25em;
+        }
+
+        .regButton{            
+            position: absolute;
+            width: 270px;
+            height: 52px;
+            left: 783px;
+            top: 400px;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 4px #000000;
+        }
+
+        .fillForm{
+            font-family: Lora;
+            font-style: italic;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 47px;
+            text-align: center;
+            letter-spacing: 0.3em;
+
+            position: absolute;
+            width: 417px;
+            height: 141px;
+            right: 7em;
+            top: 3em;
+        }
+
+        .joinArrow{
+            transform: rotate(20.78deg);
+            position: absolute;
+            right: 6em;
+            top: 11em;
+            width: 7em;
+            height: auto;
+        }
+
+        .hrForm{
+            width: 200px;
+            height: 0px;
+            position: absolute;
+
+            top: calc(17%);
+            left: calc(25%);
+            border: 1px solid rgba(0, 0, 0, 0.7);
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .logoForm{
+            width: 5vw;
+            height: 10vh;
+
+            position: absolute;
+            top: calc(10%);
+            left: calc(15%);
+        }
+
+        .titleForm{
+            font-family: Lovers Quarrel;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 48px;
+            line-height: 54px;
+            letter-spacing: 0.6em;
+            float: right;
+            color: #000000;
+        }
+
+        .divForm{
+            margin-top: calc(4%);
+        }
+
+        a{
+            color: #000;
+        }
+
+        a:hover{    
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body style="background: #F1F1F1;">
+    {% load static %}
+    <div class="container divForm">
+        <form class="joinForm">    
+            <div>
+                <img src="{% static 'images/logo.png' %}" class="logoForm"/>
+                <span class="titleForm"> Dobrov </span>
+                <hr class="hrForm"/>
+            </div>
+            </br/> </br/> </br/>
+            <div class="form-group">
+                <label for="login">Ваш логин</label>
+                <input type="login" class="form-control" id="login">
+            </div>
+            <div class="form-group">
+                <label for="email">Ваш email</label>
+                <input type="email" class="form-control" id="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Ваш пароль</label>
+                <input type="password" class="form-control" id="password">
+            </div>
+            <div class="form-group">
+                <label for="passwordAgain">И еще раз пароль</label>
+                <input type="password" class="form-control" id="passwordAgain">
+            </div>
+            <button type="submit" class="btn btn-light joinButton">Присоединиться</button>
+        </form>
+        <img class="joinArrow d-print-inline" src="{% static 'images/arrow.png' %}"/>
+        <span class="fillForm"> Уже зарегистрированы? </span>
+        <button class="btn btn-light regButton"> <a href="http://127.0.0.1:8000/auth/login" class="regA"> Войти </a> </button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
