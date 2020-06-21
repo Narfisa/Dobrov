@@ -6,12 +6,9 @@ from django.shortcuts import redirect
 
 def main(request):
     items = list(Deal.objects.all())    
-    context = {
-        'items': items,
-    }
-    return render(request, 'login.html', context)
+    return render(request, 'mainpage.html')
 
-def create(request):
+def add(request):
     pass
     # if request.method == 'POST':
     #     form = regForm(request.POST)

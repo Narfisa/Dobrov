@@ -1,0 +1,120 @@
+{% extends 'wrapper.html' %}
+
+{% block header %}
+{% load static %}
+<style>
+.title{
+    font-family: Lovers Quarrel;
+    font-size: 2vw;
+    letter-spacing: 2vw;
+    margin-left: 0;
+}
+
+.buttontext{
+    font-family: Lora;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    text-align: center;
+    letter-spacing: 0.25vw;
+}
+
+.createButton{
+    width: 15vw;
+    margin-left: 4%;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 4px #000000;
+}
+
+.header{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 100%;
+}
+
+a{
+    color: #000;
+}
+
+a:hover{    
+    color: #000;
+    text-decoration: none;
+}
+
+.logo{
+    width: 3.5vw;
+}
+
+.profileImage{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 4.5vw;
+    height: auto;
+    margin-left: 1%;
+}
+
+.alertImage{
+    width: 2vw;
+    margin-left: 1%;
+}
+
+.loginHeader{    
+    margin-left: 42%;
+    font-family: Lovers Quarrel;
+    font-size: 1.5vw;
+    letter-spacing: 0.5vw;
+}
+</style>
+
+<div class="d-flex align-items-center header p-1 position-fixed">
+  <img src="{% static 'images/logo.png' %}" alt="логотип" class="logo ml-2" />
+  <span class="title ml-2"> Dobrov </span>  
+  <span class="loginHeader"> Логин </span>
+  <img src="{% static '1.jpg' %}" alt="Изображение профиля" class="profileImage" />
+  <img src="{% static 'notification.png' %}" alt="Значек уведомлений" class="alertImage"/>
+  <button class="createButton btn btn-light d-flex justify-content-center align-items-center"> <a href="http://127.0.0.1:8000/main/create" class="buttontext"> Подать объявление </a> </button>
+</div>
+{% endblock header %}
+
+
+
+{% block items %}
+<style>
+.dogood{
+    font-family: Lora;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 31px;
+    text-align: center;
+    font-size: 1.6em;
+    letter-spacing: 0.6em;
+}
+
+.item{
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 15em;
+    height: 13.9em;
+    cursor: pointer;
+}
+</style>
+
+<div>
+    <br/> <br/> <br/> <br/>
+    <p class="dogood"> Сделай своё доброе дело!</p>
+    <hr style="border: 1px solid #000000; width: 30em; margin-top: -0.6em;">
+    <div class=" container d-flex justify-content-around">
+        {% for item in items %}
+            <div class="item d-flex flex-column align-items-center">  
+                <img style="width: 7em; height: 7em;"/>  
+                <p> item.title </p>
+                <p> item.price </p>
+                <p> item.address </p>  
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
