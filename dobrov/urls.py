@@ -20,6 +20,7 @@ from startpage.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('start/', index),
-    path('auth/', include("myauth.urls"))
+    path('start/' or '/', index),
+    path('auth/', include("myauth.urls")),
+    path('main/', include("mainpage.urls"))
 ]
