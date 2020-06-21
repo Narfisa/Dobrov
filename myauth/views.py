@@ -1,11 +1,25 @@
 from django.shortcuts import render
-from .forms import regForm
+from .forms import regForm, logForm
 from .models import User
 from django.contrib import messages
 from django.shortcuts import redirect
 
 def login(request):
-    return render(request, 'login.html')
+    if request.method == 'POST':
+        form = logForm(request.POST)
+        if form.is_valid():
+            login = form.cleaned_data['login']
+            password = form.cleaned_data['password']
+            userFound = list(User.objects.filter(login = login, password = password))    
+            if userFound:
+                messages.info(request, 'Неправильный логин или пароль!')
+            else:
+                return redirect('/main')
+    
+    context = {
+        'logForm': logForm
+    }
+    return render(request, 'login.html', context)
 
 def reg(request):
     if request.method == 'POST':
