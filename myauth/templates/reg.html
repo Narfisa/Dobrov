@@ -35,14 +35,14 @@
             position: absolute;
             width: 270px;
             height: 52px;
-            left: 783px;
-            top: 400px;
+            right: 50vh;
+            top: 65vh;
             background: #FFFFFF;
             border: 1px solid rgba(0, 0, 0, 0.5);
             box-shadow: 0px 0px 4px #000000;
         }
 
-        .fillForm{
+        .alreadyReg{
             font-family: Lora;
             font-style: italic;
             font-weight: normal;
@@ -54,8 +54,8 @@
             position: absolute;
             width: 417px;
             height: 141px;
-            right: 7em;
-            top: 3em;
+            right: 40vh;
+            top: 10vh;
         }
 
         .joinArrow{
@@ -68,12 +68,11 @@
         }
 
         .hrForm{
+            position: absolute;
+            top: 20vh;
+            left: 53vh;
             width: 200px;
             height: 0px;
-            position: absolute;
-
-            top: calc(17%);
-            left: calc(25%);
             border: 1px solid rgba(0, 0, 0, 0.7);
             box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
         }
@@ -81,10 +80,6 @@
         .logoForm{
             width: 5vw;
             height: 10vh;
-
-            position: absolute;
-            top: calc(10%);
-            left: calc(15%);
         }
 
         .titleForm{
@@ -115,33 +110,25 @@
 <body style="background: #F1F1F1;">
     {% load static %}
     <div class="container divForm">
-        <form class="joinForm">    
-            <div>
-                <img src="{% static 'images/logo.png' %}" class="logoForm"/>
-                <span class="titleForm"> Dobrov </span>
+        <form id="regForm" method="POST" class="joinForm form">
+            {% csrf_token %}
+            <div class="container mt-2 mb-5">
+                <img src="{% static 'images/logo.png' %}" class="logoForm ml-4"/>
+                <span class="titleForm mt-2"> Dobrov </span>
                 <hr class="hrForm"/>
             </div>
-            </br/> </br/> </br/>
-            <div class="form-group">
-                <label for="login">Ваш логин</label>
-                <input type="login" class="form-control" id="login">
-            </div>
-            <div class="form-group">
-                <label for="email">Ваш email</label>
-                <input type="email" class="form-control" id="email">
-            </div>
-            <div class="form-group">
-                <label for="password">Ваш пароль</label>
-                <input type="password" class="form-control" id="password">
-            </div>
-            <div class="form-group">
-                <label for="passwordAgain">И еще раз пароль</label>
-                <input type="password" class="form-control" id="passwordAgain">
-            </div>
-            <button type="submit" class="btn btn-light joinButton">Присоединиться</button>
-        </form>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <p {% if message.tags %} class="{{ message.tags }}" style ="color:red" {% endif %}> {{ message }}</p>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {{regForm}}
+            <button class="btn btn-light joinButton mt-3"> Присоединиться </button>
+        </form> 
         <img class="joinArrow d-print-inline" src="{% static 'images/arrow.png' %}"/>
-        <span class="fillForm"> Уже зарегистрированы? </span>
+        <span class="alreadyReg"> Уже зарегистрированы? </span>
         <button class="btn btn-light regButton"> <a href="http://127.0.0.1:8000/auth/login" class="regA"> Войти </a> </button>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
