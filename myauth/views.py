@@ -11,7 +11,7 @@ def login(request):
             login = form.cleaned_data['login']
             password = form.cleaned_data['password']
             userFound = list(User.objects.filter(login = login, password = password))    
-            if userFound:
+            if not userFound:
                 messages.info(request, 'Неправильный логин или пароль!')
             else:
                 return redirect('/main')
