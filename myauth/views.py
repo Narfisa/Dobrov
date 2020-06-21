@@ -5,6 +5,9 @@ from django.contrib import messages
 from django.shortcuts import redirect
 
 def login(request):
+    if request.session.has_key('username'):
+        return redirect('/main', {"username": request.session['username']})
+
     if request.method == 'POST':
         form = logForm(request.POST)
         if form.is_valid():
@@ -14,7 +17,8 @@ def login(request):
             if not userFound:
                 messages.info(request, 'Неправильный логин или пароль!')
             else:
-                return redirect('/main')
+                request.session['username'] = login
+                return redirect('/main', {"username": login})
     
     context = {
         'logForm': logForm
@@ -22,6 +26,9 @@ def login(request):
     return render(request, 'login.html', context)
 
 def reg(request):
+    if request.session.has_key('username'):
+        return redirect('/main', {"username": request.session['username']})
+
     if request.method == 'POST':
         form = regForm(request.POST)
         if form.is_valid():
@@ -33,7 +40,8 @@ def reg(request):
                 messages.info(request, 'Такой логин или email уже существует!')
             else:
                 form.save()
-                return redirect('/main')
+                request.session['username'] = login
+                return redirect('/main', {"username": login})
     
     context = {
         'regForm': regForm
