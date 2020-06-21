@@ -1,4 +1,4 @@
-{% extends 'wrapper.html' %}
+{% extends 'mainPageWrapper.html' %}
 
 {% block header %}
 {% load static %}
@@ -49,8 +49,7 @@ a:hover{
 .profileImage{
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    width: 4.5vw;
-    height: auto;
+    width: 5vw;
     margin-left: 1%;
 }
 
@@ -70,16 +69,15 @@ a:hover{
 <div class="d-flex align-items-center header p-1 position-fixed">
   <img src="{% static 'images/logo.png' %}" alt="логотип" class="logo ml-2" />
   <span class="title ml-2"> Dobrov </span>  
-  <span class="loginHeader"> Логин </span>
-  <img src="{% static '1.jpg' %}" alt="Изображение профиля" class="profileImage" />
+  <span class="loginHeader"> {{ username }} </span>
+  <img src="{{ image }}" alt="Изображение профиля" class="profileImage" />
   <img src="{% static 'notification.png' %}" alt="Значек уведомлений" class="alertImage"/>
   <button class="createButton btn btn-light d-flex justify-content-center align-items-center"> <a href="http://127.0.0.1:8000/main/create" class="buttontext"> Подать объявление </a> </button>
 </div>
 {% endblock header %}
 
-
-
-{% block items %}
+{% block content %}
+{% load static %}
 <style>
 .dogood{
     font-family: Lora;
@@ -96,25 +94,31 @@ a:hover{
     border: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    width: 15em;
-    height: 13.9em;
+    width: 20vw;
     cursor: pointer;
+}
+
+.itemImage{
+    width: 15vw;
+    border-radius: 5%;
+    margin-bottom: 5%;
+    
 }
 </style>
 
-<div>
+<div> 
     <br/> <br/> <br/> <br/>
-    <p class="dogood"> Сделай своё доброе дело!</p>
-    <hr style="border: 1px solid #000000; width: 30em; margin-top: -0.6em;">
-    <div class=" container d-flex justify-content-around">
+    <div class="container d-flex justify-content-around">
         {% for item in items %}
-            <div class="item d-flex flex-column align-items-center">  
-                <img style="width: 7em; height: 7em;"/>  
-                <p> item.title </p>
-                <p> item.price </p>
-                <p> item.address </p>  
-            </div>
+            <a href="detail/{{item.id}}">
+                <div class="item d-flex flex-column align-items-center p-2">  
+                    <img src="{{item.image}}" class="itemImage"/>  
+                    <p> {{ item.title|truncatechars:30 }} </p>
+                    <p> {{ item.price|truncatechars:30 }} </p>
+                    <p> {{ item.address|truncatechars:30 }} </p>  
+                </div>
+            </a>
         {% endfor %}
     </div>
 </div>
-{% endblock %}
+{% endblock content %}

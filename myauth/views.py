@@ -18,7 +18,7 @@ def login(request):
                 messages.info(request, 'Неправильный логин или пароль!')
             else:
                 request.session['username'] = login
-                return redirect('/main', {"username": login})
+                return redirect('/main')
     
     context = {
         'logForm': logForm
@@ -41,7 +41,7 @@ def reg(request):
             else:
                 form.save()
                 request.session['username'] = login
-                return redirect('/main', {"username": login})
+                return redirect('/main')
     
     context = {
         'regForm': regForm
