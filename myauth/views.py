@@ -3,6 +3,18 @@ from .forms import regForm, logForm
 from .models import User
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
+
+def correctEmail(email):
+    value = email
+    try:
+        validate_email(value)
+    except ValidationError:
+        return False
+    else:
+        return True
+
 
 def login(request):
     if request.session.has_key('username'):
@@ -31,18 +43,21 @@ def reg(request):
 
     if request.method == 'POST':
         form = regForm(request.POST)
-        if form.is_valid():
-            login = form.cleaned_data['login']
-            email = form.cleaned_data['email']
-            loginFound = list(User.objects.filter(login = login))            
-            emailFound = list(User.objects.filter(email = email))
-            if loginFound or emailFound:
-                messages.info(request, 'Такой логин или email уже существует!')
-            else:
-                form.save()
-                request.session['username'] = login
-                return redirect('/main')
-    
+        email = form.cleaned_data['email']
+        if correctEmail(email):
+            if form.is_valid():
+                login = form.cleaned_data['login']
+                loginFound = list(User.objects.filter(login = login))            
+                emailFound = list(User.objects.filter(email = email))
+                if loginFound or emailFound:
+                    messages.info(request, 'Такой логин или email уже существует!')
+                else:
+                    form.save()
+                    request.session['username'] = login
+                    return redirect('/main')
+        else:
+            messages.info(request, 'Неккоректный email адрес')
+        
     context = {
         'regForm': regForm
     }

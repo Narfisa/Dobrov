@@ -41,7 +41,7 @@
         }
 
         a:hover{    
-            color: #000;
+            color: #A1A1A1;
             text-decoration: none;
         }
 
@@ -52,7 +52,7 @@
         .profileImage{
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
             border-radius: 50%;
-            width: 4.5vw;
+            width: 5vw;
             height: auto;
             margin-left: 1%;
         }
@@ -98,13 +98,21 @@
             margin-top: 10%;
             right: 3%;
         }
+
+        .back{            
+            font-family: Lora;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 1.2vw;
+            letter-spacing: 0.1vw;
+        }
     </style>
 </head>
 <body style="background: #F1F1F1;">
     <div class="d-flex align-items-center header p-1 position-fixed">
         {% load static %}
         <img src="{% static 'images/logo.png' %}" alt="логотип" class="logo ml-2" />
-        <span class="title ml-2"> Dobrov </span>  
+        <a href="http://127.0.0.1:8000/main/" class="title ml-2"> Dobrov </a>  
         <span class="loginHeader"> {{ username }} </span>
         <img src="{{ image }}" alt="Изображение профиля" class="profileImage" />
         <img src="{% static 'notification.png' %}" alt="Значек уведомлений" class="alertImage"/>
@@ -114,11 +122,12 @@
     <div class="container mx-auto deal row">
         <img src="{{ deal.image }}" alt="изображение объявления" class="dealImage col"/>
         <div class="dealInfo col">
-            <span class="dealTitle"> {{ deal.title }} </span> <br/>
-            <p class="mb-5 mt-5"> Описание <span class="dealMore"> {{ deal.more }} </span> </p>
+            <span class="dealTitle text-justify"> {{ deal.title }} </span> <br/>
+            <p class="mb-5 mt-3"> Описание <span class="dealMore"> {{ deal.more }} </span> </p>
             <p class="mb-5"> Адрес <span class="dealAddress"> {{ deal.address }} </span> </p>
             <p class="mb-5"> Вознаграждение <span class="dealPrice"> {{ deal.price }} </span> </p>
         </div>
+        <a href="http://127.0.0.1:8000/main/" class="back mr-2 mt-2"> Назад </a>
     </div> 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
