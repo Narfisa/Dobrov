@@ -84,7 +84,7 @@
     {% load static %}
     <div class="d-flex align-items-center header p-1 position-fixed">
         <img src="{% static 'images/logo.png' %}" alt="логотип" class="logo ml-2" />
-        <span class="title ml-2"> Dobrov </span>  
+        <a href="http://127.0.0.1:8000/main/" class="title ml-2"> Dobrov </a>  
         <span class="loginHeader"> {{ username }} </span>
         <img src="{{ image }}" alt="Изображение профиля" class="profileImage" />
         <img src="{% static 'notification.png' %}" alt="Значек уведомлений" class="alertImage"/>
