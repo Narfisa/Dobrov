@@ -18,9 +18,10 @@ def main(request):
 def add(request):
     if request.method == 'POST':
         form = create(request.POST)
-        newDeal= User.objects.get(login=request.session['username'])
-        form.save()
-        return redirect('/main')
+        if form.is_valid():
+            newDeal= User.objects.get(login=request.session['username'])
+            form.save()
+            return redirect('/main')
     
     user = User.objects.get(login=request.session['username']) 
     context = {

@@ -4,7 +4,7 @@ from .models import Deal
 class create(forms.ModelForm):
     class Meta:
         model = Deal
-        fields = '__all__'
+        fields = ('title', 'image', 'address', 'more','price')
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
