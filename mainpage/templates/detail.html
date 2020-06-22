@@ -68,6 +68,36 @@
             font-size: 1.5vw;
             letter-spacing: 0.5vw;
         }
+
+        .dealImage{
+            width: 35vw;
+            height: 50vh;
+            margin-top: 8%;
+            margin-left: 3%;
+            margin-right: 5%;
+        }
+
+        .deal{
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+            height: 80vh;
+        }
+
+        .dealTitle{
+            font-family: Lora;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 1.5vw;
+            text-align: center;
+            letter-spacing: 0.25vw;
+        }
+
+        .dealInfo{            
+            margin-top: 10%;
+            right: 3%;
+        }
     </style>
 </head>
 <body style="background: #F1F1F1;">
@@ -80,8 +110,16 @@
         <img src="{% static 'notification.png' %}" alt="Значек уведомлений" class="alertImage"/>
         <button class="createButton btn btn-light d-flex justify-content-center align-items-center"> <a href="http://127.0.0.1:8000/main/create" class="buttontext"> Подать объявление </a> </button>
     </div>
-
-
+    <br/> <br/> <br/> <br/>
+    <div class="container mx-auto deal row">
+        <img src="{{ deal.image }}" alt="изображение объявления" class="dealImage col"/>
+        <div class="dealInfo col">
+            <span class="dealTitle"> {{ deal.title }} </span> <br/>
+            <p class="mb-5 mt-5"> Описание <span class="dealMore"> {{ deal.more }} </span> </p>
+            <p class="mb-5"> Адрес <span class="dealAddress"> {{ deal.address }} </span> </p>
+            <p class="mb-5"> Вознаграждение <span class="dealPrice"> {{ deal.price }} </span> </p>
+        </div>
+    </div> 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
