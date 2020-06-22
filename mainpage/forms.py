@@ -8,7 +8,8 @@ class create(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['password'].widget = forms.widgets.PasswordInput()
+        self.fields['image'].widget = forms.widgets.FileInput()
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'form-control'
+
 

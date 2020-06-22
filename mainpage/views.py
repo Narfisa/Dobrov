@@ -16,24 +16,19 @@ def main(request):
     return render(request, 'mainpage.html', context)
 
 def add(request):
-    pass
-    # if request.method == 'POST':
-    #     form = regForm(request.POST)
-    #     if form.is_valid():
-    #         login = form.cleaned_data['login']
-    #         email = form.cleaned_data['email']
-    #         loginFound = list(User.objects.filter(login = login))            
-    #         emailFound = list(User.objects.filter(email = email))
-    #         if loginFound or emailFound:
-    #             messages.info(request, 'Такой логин или email уже существует!')
-    #         else:
-    #             form.save()
-    #             return redirect('/main')
+    if request.method == 'POST':
+        form = create(request.POST)
+        newDeal= User.objects.get(login=request.session['username'])
+        form.save()
+        return redirect('/main')
     
-    # context = {
-    #     'regForm': regForm
-    # }
-    # return render(request, 'reg.html', context)
+    user = User.objects.get(login=request.session['username']) 
+    context = {
+        "image": user.image,
+        'username': request.session['username'],
+        'createForm': create
+    }
+    return render(request, 'create.html', context)
 
 def detail(request, id):
     getDeal = Deal.objects.get(id=id)

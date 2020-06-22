@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dobrov</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>  
+        .title{
+            font-family: Lovers Quarrel;
+            font-size: 2vw;
+            letter-spacing: 2vw;
+            margin-left: 0;
+        }
+
+        .buttontext{
+            font-family: Lora;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 1vw;
+            text-align: center;
+            letter-spacing: 0.25vw;
+        }
+
+        .header{
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            width: 100%;
+        }
+
+        a{
+            color: #000;
+        }
+
+        a:hover{    
+            color: #000;
+            text-decoration: none;
+        }
+
+        .logo{
+            width: 3.5vw;
+        }
+
+        .profileImage{
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 5vw;
+            margin-left: 1%;
+        }
+
+        .alertImage{
+            width: 2vw;
+            margin-left: 1%;
+        }
+
+        .loginHeader{    
+            margin-left: 60%;
+            font-family: Lovers Quarrel;
+            font-size: 1.5vw;
+            letter-spacing: 0.5vw;
+        }
+
+        .createDealButton{            
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            box-shadow: 0px 0px 4px #000000;
+            margin-top: 5%;
+        }
+
+        .createForm{
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+            height: 80vh;
+        }
+
+        .form{
+            width: 50%;
+        }
+    </style>
+</head>
+<body style="background: #F1F1F1;">
+    {% load static %}
+    <div class="d-flex align-items-center header p-1 position-fixed">
+        <img src="{% static 'images/logo.png' %}" alt="логотип" class="logo ml-2" />
+        <span class="title ml-2"> Dobrov </span>  
+        <span class="loginHeader"> {{ username }} </span>
+        <img src="{{ image }}" alt="Изображение профиля" class="profileImage" />
+        <img src="{% static 'notification.png' %}" alt="Значек уведомлений" class="alertImage"/>
+    </div>
+    <br/> <br/> <br/> <br/>
+    <div class="container createForm">
+        <form id="Form" method="POST" class="p-3 mt-3 container mx-auto row">
+            {% csrf_token %}
+            {{ createForm }}
+            <button class="btn btn-light createDealButton float-right"> Создать объявление </button>
+        </form> 
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
