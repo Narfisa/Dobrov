@@ -91,7 +91,7 @@
     </div>
     <br/> <br/> <br/> <br/>
     <div class="container createForm">
-        <form id="Form" method="POST" class="p-3 mt-3 container mx-auto row">
+        <form id="Form" method="POST" class="p-3 mt-3 container mx-auto row" enctype="multipart/form-data">
             {% csrf_token %}
             {{ createForm }}
             <button class="btn btn-light createDealButton float-right"> Создать объявление </button>

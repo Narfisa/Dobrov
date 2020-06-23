@@ -112,7 +112,7 @@
     <div class="d-flex align-items-center header p-1 position-fixed">
         {% load static %}
         <img src="{% static 'images/logo.png' %}" alt="логотип" class="logo ml-2" />
-        <a href="http://127.0.0.1:8000/main/" class="title ml-2"> Dobrov </a>  
+        <a href="{% !!!!!!!!!!!!!!!!!!!!!!!!!! %}" class="title ml-2"> Dobrov </a>  
         <span class="loginHeader"> {{ username }} </span>
         <img src="{{ image }}" alt="Изображение профиля" class="profileImage" />
         <img src="{% static 'notification.png' %}" alt="Значек уведомлений" class="alertImage"/>
@@ -120,7 +120,7 @@
     </div>
     <br/> <br/> <br/> <br/>
     <div class="container mx-auto deal row">
-        <img src="{{ deal.image }}" alt="изображение объявления" class="dealImage col"/>
+        <img src="http://127.0.0.1:8000/media/images/{{ deal.image }}" alt="изображение объявления" class="dealImage col"/>
         <div class="dealInfo col">
             <span class="dealTitle text-justify"> {{ deal.title }} </span> <br/>
             <p class="mb-5 mt-3"> Описание <span class="dealMore"> {{ deal.more }} </span> </p>
